@@ -8,8 +8,9 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
-    @Published var airings = [Anime]()
-    @Published var upcoming = [Anime]()
+//    @Published var airings = [Anime]()
+//    @Published var upcoming = [Anime]()
+    @Published var animeList = [Anime]()
     private var baseUrl = "https://api.jikan.moe/v3/top/anime/1"
     
     func fetchAnime(endpoint: String) {
@@ -23,11 +24,7 @@ class MainViewModel: ObservableObject {
             guard let animu = try? jsonParser.decode(Responses.self, from: data) else { return }
             
             DispatchQueue.main.async {
-                if endpoint == "airing" {
-                    self.airings = animu.top
-                } else {
-                    self.upcoming = animu.top
-                }
+                self.animeList = animu.top
             }
         }.resume()
     }

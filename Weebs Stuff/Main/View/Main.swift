@@ -13,79 +13,55 @@ struct Main: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                HStack {
-                    Text("On-going")
-                        .font(.headline)
-                    Spacer()
-                    NavigationLink(
-                        destination: AnimeGridView(animeList: viewModel.airings, title: "On-going"),
-                        label: {
-                            Text("See all")
-                        })
-                }
-                .padding([.top, .horizontal])
-                
-                VStack(alignment: .trailing) {
-                    if viewModel.airings.count == 0 {
-                        ActivityIndicator(shouldAnimate: true)
-                            .onAppear(perform: {
-                                viewModel.fetchAnime(endpoint: "airing")
-                            })
-                    } else {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack {
-                                ForEach(0...9, id: \.self) { index in
-                                    NavigationLink(
-                                        destination: DetailView(id: viewModel.airings[index].malId),
-                                        label: {
-                                            AnimeCell(anime: viewModel.airings[index])
-                                                .padding(.leading, 20)
-                                        }
-                                    )
-                                    .buttonStyle(PlainButtonStyle())
+                AnimeSection(title: "Most Popular", endpoint: "bypopularity")
+                AnimeSection(title: "On-going", endpoint: "airing")
+                AnimeSection(title: "Upcoming", endpoint: "upcoming")
+            }
+            .navigationBarTitle("MyAnimeList")
+        }
+    }
+}
+
+struct AnimeSection: View {
+    let title: String
+    let endpoint: String
+    @StateObject var viewModel = MainViewModel()
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.headline)
+            Spacer()
+            NavigationLink(
+                destination: AnimeGridView(animeList: viewModel.animeList, title: title),
+                label: {
+                    Text("See all")
+                })
+        }
+        .padding([.top, .horizontal])
+        
+        VStack(alignment: .trailing) {
+            if viewModel.animeList.count == 0 {
+                ActivityIndicator(shouldAnimate: true)
+                    .onAppear(perform: {
+                        viewModel.fetchAnime(endpoint: endpoint)
+                    })
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(0...9, id: \.self) { index in
+                            NavigationLink(
+                                destination: DetailView(id: viewModel.animeList[index].malId),
+                                label: {
+                                    AnimeCell(anime: viewModel.animeList[index])
+                                        .padding(.leading, 20)
                                 }
-                            }
-                        }
-                    }
-                }
-                
-                HStack {
-                    Text("Upcoming")
-                        .font(.headline)
-                    Spacer()
-                    NavigationLink(
-                        destination: AnimeGridView(animeList: viewModel.upcoming, title: "Upcoming"),
-                        label: {
-                            Text("See all")
-                        })
-                }
-                .padding([.top, .horizontal])
-                
-                VStack(alignment: .trailing) {
-                    if viewModel.upcoming.count == 0 {
-                        ActivityIndicator(shouldAnimate: true)
-                            .onAppear(perform: {
-                                viewModel.fetchAnime(endpoint: "upcoming")
-                            })
-                    } else {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack {
-                                ForEach(0...9, id: \.self) { index in
-                                    NavigationLink(
-                                        destination: DetailView(id: viewModel.upcoming[index].malId),
-                                        label: {
-                                            AnimeCell(anime: viewModel.upcoming[index])
-                                                .padding(.leading, 20)
-                                        }
-                                    )
-                                    .buttonStyle(PlainButtonStyle())
-                                }
-                            }
+                            )
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
             }
-            .navigationBarTitle("MyAnimeList")
         }
     }
 }
