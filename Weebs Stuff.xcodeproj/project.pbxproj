@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C1C830A2697EAE4006A997A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C83092697EAE4006A997A /* WebView.swift */; };
+		0C1C830C26982341006A997A /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830B26982341006A997A /* RoundedCorner.swift */; };
+		0C1C830E26982F21006A997A /* AnimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830D26982F21006A997A /* AnimeDetail.swift */; };
+		0C1C831026983127006A997A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830F26983127006A997A /* Character.swift */; };
+		0C1C8312269831BD006A997A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8311269831BD006A997A /* DetailViewModel.swift */; };
+		0C1C831626989673006A997A /* AnimeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C831526989673006A997A /* AnimeGridView.swift */; };
+		0CD0E25F26971E910065ECDF /* Weebs_StuffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */; };
+		0CD0E26126971E910065ECDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E26026971E910065ECDF /* ContentView.swift */; };
+		0CD0E26326971E940065ECDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0E26226971E940065ECDF /* Assets.xcassets */; };
+		0CD0E26626971E940065ECDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0E26526971E940065ECDF /* Preview Assets.xcassets */; };
+		0CD0E2722697204A0065ECDF /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E2712697204A0065ECDF /* Main.swift */; };
+		0CD0E274269722EA0065ECDF /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E273269722EA0065ECDF /* AnimeCell.swift */; };
+		0CD0E27626972BA90065ECDF /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E27526972BA90065ECDF /* Anime.swift */; };
+		0CD0E278269740CB0065ECDF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E277269740CB0065ECDF /* MainViewModel.swift */; };
+		0CD0E27B26974B630065ECDF /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E27A26974B630065ECDF /* ActivityIndicator.swift */; };
+		0CD0E27E2697522E0065ECDF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD0E27D2697522E0065ECDF /* Kingfisher */; };
+		0CD0E283269759520065ECDF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E282269759520065ECDF /* DetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C1C83092697EAE4006A997A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0C1C830B26982341006A997A /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		0C1C830D26982F21006A997A /* AnimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetail.swift; sourceTree = "<group>"; };
+		0C1C830F26983127006A997A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		0C1C8311269831BD006A997A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		0C1C831526989673006A997A /* AnimeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGridView.swift; sourceTree = "<group>"; };
+		0CD0E25B26971E910065ECDF /* Weebs Stuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weebs Stuff.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weebs_StuffApp.swift; sourceTree = "<group>"; };
+		0CD0E26026971E910065ECDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0CD0E26226971E940065ECDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0CD0E26526971E940065ECDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0CD0E26726971E940065ECDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0CD0E2712697204A0065ECDF /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		0CD0E273269722EA0065ECDF /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
+		0CD0E27526972BA90065ECDF /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		0CD0E277269740CB0065ECDF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0CD0E27A26974B630065ECDF /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		0CD0E282269759520065ECDF /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0CD0E25826971E910065ECDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CD0E27E2697522E0065ECDF /* Kingfisher in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C1C83132698965A006A997A /* Grid */ = {
+			isa = PBXGroup;
+			children = (
+				0C1C831426989664006A997A /* View */,
+			);
+			path = Grid;
+			sourceTree = "<group>";
+		};
+		0C1C831426989664006A997A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C1C831526989673006A997A /* AnimeGridView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CD0E25226971E910065ECDF = {
+			isa = PBXGroup;
+			children = (
+				0CD0E25D26971E910065ECDF /* Weebs Stuff */,
+				0CD0E25C26971E910065ECDF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0CD0E25C26971E910065ECDF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E25B26971E910065ECDF /* Weebs Stuff.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0CD0E25D26971E910065ECDF /* Weebs Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				0C1C83132698965A006A997A /* Grid */,
+				0CD0E27926974AA40065ECDF /* Utilities */,
+				0CD0E27F269759020065ECDF /* Detail */,
+				0CD0E26E269720330065ECDF /* Model */,
+				0CD0E26D2697200B0065ECDF /* Main */,
+				0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */,
+				0CD0E26026971E910065ECDF /* ContentView.swift */,
+				0CD0E26226971E940065ECDF /* Assets.xcassets */,
+				0CD0E26726971E940065ECDF /* Info.plist */,
+				0CD0E26426971E940065ECDF /* Preview Content */,
+			);
+			path = "Weebs Stuff";
+			sourceTree = "<group>";
+		};
+		0CD0E26426971E940065ECDF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E26526971E940065ECDF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0CD0E26D2697200B0065ECDF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E2702697203E0065ECDF /* ViewModel */,
+				0CD0E26F269720390065ECDF /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0CD0E26E269720330065ECDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E27526972BA90065ECDF /* Anime.swift */,
+				0C1C830D26982F21006A997A /* AnimeDetail.swift */,
+				0C1C830F26983127006A997A /* Character.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0CD0E26F269720390065ECDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E2712697204A0065ECDF /* Main.swift */,
+				0CD0E273269722EA0065ECDF /* AnimeCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CD0E2702697203E0065ECDF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E277269740CB0065ECDF /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0CD0E27926974AA40065ECDF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E27A26974B630065ECDF /* ActivityIndicator.swift */,
+				0C1C83092697EAE4006A997A /* WebView.swift */,
+				0C1C830B26982341006A997A /* RoundedCorner.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0CD0E27F269759020065ECDF /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E281269759400065ECDF /* ViewModel */,
+				0CD0E280269759390065ECDF /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0CD0E280269759390065ECDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CD0E282269759520065ECDF /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0CD0E281269759400065ECDF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0C1C8311269831BD006A997A /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0CD0E25A26971E910065ECDF /* Weebs Stuff */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CD0E26A26971E940065ECDF /* Build configuration list for PBXNativeTarget "Weebs Stuff" */;
+			buildPhases = (
+				0CD0E25726971E910065ECDF /* Sources */,
+				0CD0E25826971E910065ECDF /* Frameworks */,
+				0CD0E25926971E910065ECDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Weebs Stuff";
+			packageProductDependencies = (
+				0CD0E27D2697522E0065ECDF /* Kingfisher */,
+			);
+			productName = "Weebs Stuff";
+			productReference = 0CD0E25B26971E910065ECDF /* Weebs Stuff.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CD0E25326971E910065ECDF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					0CD0E25A26971E910065ECDF = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 0CD0E25626971E910065ECDF /* Build configuration list for PBXProject "Weebs Stuff" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0CD0E25226971E910065ECDF;
+			packageReferences = (
+				0CD0E27C2697522E0065ECDF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
+			productRefGroup = 0CD0E25C26971E910065ECDF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0CD0E25A26971E910065ECDF /* Weebs Stuff */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0CD0E25926971E910065ECDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CD0E26626971E940065ECDF /* Preview Assets.xcassets in Resources */,
+				0CD0E26326971E940065ECDF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0CD0E25726971E910065ECDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CD0E274269722EA0065ECDF /* AnimeCell.swift in Sources */,
+				0CD0E283269759520065ECDF /* DetailView.swift in Sources */,
+				0C1C830C26982341006A997A /* RoundedCorner.swift in Sources */,
+				0C1C831026983127006A997A /* Character.swift in Sources */,
+				0CD0E27626972BA90065ECDF /* Anime.swift in Sources */,
+				0C1C830E26982F21006A997A /* AnimeDetail.swift in Sources */,
+				0CD0E2722697204A0065ECDF /* Main.swift in Sources */,
+				0CD0E26126971E910065ECDF /* ContentView.swift in Sources */,
+				0CD0E27B26974B630065ECDF /* ActivityIndicator.swift in Sources */,
+				0C1C8312269831BD006A997A /* DetailViewModel.swift in Sources */,
+				0C1C830A2697EAE4006A997A /* WebView.swift in Sources */,
+				0C1C831626989673006A997A /* AnimeGridView.swift in Sources */,
+				0CD0E25F26971E910065ECDF /* Weebs_StuffApp.swift in Sources */,
+				0CD0E278269740CB0065ECDF /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0CD0E26826971E940065ECDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0CD0E26926971E940065ECDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0CD0E26B26971E940065ECDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Weebs Stuff/Preview Content\"";
+				DEVELOPMENT_TEAM = 78G9R9V4K7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Weebs Stuff/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.farrelanshary.Weebs-Stuff";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0CD0E26C26971E940065ECDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Weebs Stuff/Preview Content\"";
+				DEVELOPMENT_TEAM = 78G9R9V4K7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Weebs Stuff/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.farrelanshary.Weebs-Stuff";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CD0E25626971E910065ECDF /* Build configuration list for PBXProject "Weebs Stuff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CD0E26826971E940065ECDF /* Debug */,
+				0CD0E26926971E940065ECDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0CD0E26A26971E940065ECDF /* Build configuration list for PBXNativeTarget "Weebs Stuff" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CD0E26B26971E940065ECDF /* Debug */,
+				0CD0E26C26971E940065ECDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0CD0E27C2697522E0065ECDF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0CD0E27D2697522E0065ECDF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CD0E27C2697522E0065ECDF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0CD0E25326971E910065ECDF /* Project object */;
+}
