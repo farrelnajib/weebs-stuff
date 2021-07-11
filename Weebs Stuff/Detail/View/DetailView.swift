@@ -11,14 +11,16 @@ import Kingfisher
 
 struct DetailView: View {
     let id: Int
+    let type: String
     @ObservedObject var viewModel: DetailViewModel
     @State var player = AVPlayer()
     @State private var isExpanded: Bool = false
     @State private var selection = 0
     
-    init(id: Int) {
+    init(id: Int, type: String) {
         self.id = id
-        self.viewModel = DetailViewModel(id: id)
+        self.type = type
+        self.viewModel = DetailViewModel(id: id, type: type)
     }
     
     var body: some View {
@@ -37,13 +39,13 @@ struct DetailView: View {
                     
                     VStack {
                         Spacer()
-                            .frame(height: 125)
+                            .frame(height: type == "anime" ? 150 : 50)
                         
                         KFImage(URL(string: anime.imageUrl ?? ""))
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(20)
-                            .frame(width: 250)
+                            .frame(width: 200)
                             
                         Text(anime.titleJapanese ?? "")
                             .padding(.horizontal)
@@ -77,18 +79,34 @@ struct DetailView: View {
                             
                             Spacer()
                             
-                            VStack {
-                                Text(String(anime.episodes ?? 0))
-                                    .bold()
-                                Text("Eps")
-                            }
-                            
-                            Spacer()
-                            
-                            VStack {
-                                Text(anime.duration ?? "-")
-                                    .bold()
-                                Text("Duration")
+                            if type == "anime" {
+                                VStack {
+                                    Text(String(anime.episodes ?? 0))
+                                        .bold()
+                                    Text("Eps")
+                                }
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    Text(anime.duration ?? "-")
+                                        .bold()
+                                    Text("Duration")
+                                }
+                            } else {
+                                VStack {
+                                    Text(String(anime.volumes ?? 0))
+                                        .bold()
+                                    Text("Volumes")
+                                }
+                                
+                                Spacer()
+                                
+                                VStack {
+                                    Text(String(anime.chapters ?? 0))
+                                        .bold()
+                                    Text("Chapters")
+                                }
                             }
                             Spacer()
                         }
@@ -105,8 +123,6 @@ struct DetailView: View {
                                 .frame(height: 5)
                             
                             Text("\(anime.synopsis ?? "No Synopsis")")
-                                .animation(.easeOut)
-                                .transition(.slide)
                                 .lineLimit(isExpanded ? nil : 2)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .overlay(
@@ -127,12 +143,14 @@ struct DetailView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         
-                        VStack(alignment: .leading) {
+                        VStack() {
                             Text("Characters")
                                 .font(.headline)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .multilineTextAlignment(.leading)
                             if let characters = anime.characters {
                                 LazyVStack(alignment: .leading) {
-                                    ForEach(0..<characters.count, id: \.self) { index in
+                                    ForEach(0..<(characters.count > 10 ? 10 : characters.count), id: \.self) { index in
                                         HStack {
                                             KFImage(URL(string: characters[index].imageUrl ?? ""))
                                                 .resizable()
@@ -149,7 +167,7 @@ struct DetailView: View {
                                     }
                                 }
                             } else {
-                                ActivityIndicator(shouldAnimate: true)
+                                ProgressView()
                             }
                         }
                         .padding()
@@ -158,7 +176,7 @@ struct DetailView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         } else {
-            ActivityIndicator(shouldAnimate: true)
+            ProgressView()
                 .onAppear(perform: {
                     viewModel.fetchAnime()
                 })
@@ -175,6 +193,6 @@ extension View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(id: 45577)
+        DetailView(id: 11, type: "manga")
     }
 }

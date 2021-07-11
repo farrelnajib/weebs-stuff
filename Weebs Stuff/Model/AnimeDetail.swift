@@ -17,6 +17,8 @@ struct AnimeDetail: Decodable {
     let titleJapanese: String?
     let episodes: Int?
     let duration: String?
+    let volumes: Int?
+    let chapters: Int?
     let score: Float?
     let synopsis: String?
     var characters: [Character]?

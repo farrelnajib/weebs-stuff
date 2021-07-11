@@ -15,12 +15,12 @@ struct AnimeCell: View {
         VStack(alignment: .leading) {
             KFImage(URL(string: anime.imageUrl))
                 .resizable()
-                .scaledToFill()
+                .aspectRatio(contentMode: .fill)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .cornerRadius(20)
                 .padding(0)
             Text(anime.title)
-                .lineLimit(1)
+                .lineLimit(2)
             if anime.score > 0 {
                 HStack(spacing: 0) {
                     Image(systemName: "star.fill")

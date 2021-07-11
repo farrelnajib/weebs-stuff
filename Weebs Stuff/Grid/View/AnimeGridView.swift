@@ -15,13 +15,14 @@ struct AnimeGridView: View {
     ]
     let animeList: [Anime]
     let title: String
+    let type: String
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridItems, spacing: 20) {
                 ForEach(0..<animeList.count, id: \.self) { index in
                     NavigationLink(
-                        destination: DetailView(id: animeList[index].malId),
+                        destination: DetailView(id: animeList[index].malId, type: type),
                         label: {
                             AnimeCell(anime: animeList[index])
                                 .padding(5)
@@ -38,6 +39,6 @@ struct AnimeGridView: View {
 
 struct AnimeGridView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeGridView(animeList: [MOCK_ANIME], title: "On-going")
+        AnimeGridView(animeList: [MOCK_ANIME], title: "On-going", type: "anime")
     }
 }

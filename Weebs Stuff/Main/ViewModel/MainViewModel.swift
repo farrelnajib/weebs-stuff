@@ -11,10 +11,10 @@ class MainViewModel: ObservableObject {
 //    @Published var airings = [Anime]()
 //    @Published var upcoming = [Anime]()
     @Published var animeList = [Anime]()
-    private var baseUrl = "https://api.jikan.moe/v3/top/anime/1"
+    private var baseUrl = "https://api.jikan.moe/v3/top/"
     
-    func fetchAnime(endpoint: String) {
-        guard let url = URL(string: "\(baseUrl)/\(endpoint)") else { return }
+    func fetchAnime(type: String, endpoint: String) {
+        guard let url = URL(string: "\(baseUrl)\(type)/1/\(endpoint)") else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             let jsonParser = JSONDecoder()

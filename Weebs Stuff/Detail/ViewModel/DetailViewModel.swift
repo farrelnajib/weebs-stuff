@@ -9,13 +9,15 @@ import Foundation
 
 class DetailViewModel: ObservableObject {
     let id: Int
+    let type: String
     @Published var anime: AnimeDetail?
-    private var baseUrl = "https://api.jikan.moe/v3/anime/"
+    private var baseUrl = "https://api.jikan.moe/v3"
     private var request: String
     
-    init(id: Int) {
+    init(id: Int, type: String) {
         self.id = id
-        self.request = baseUrl + String(id)
+        self.type = type
+        self.request = baseUrl + "/" + type + "/" + String(id)
     }
     
     func fetchAnime() {
@@ -36,7 +38,8 @@ class DetailViewModel: ObservableObject {
     }
     
     func fetchCharacters() {
-        guard let url = URL(string: "\(request)/characters_staff") else { return }
+        let endpoint = self.type == "anime" ? "characters_staff" : "characters"
+        guard let url = URL(string: "\(request)/\(endpoint)") else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             let jsonParser = JSONDecoder()
             jsonParser.keyDecodingStrategy = .convertFromSnakeCase
