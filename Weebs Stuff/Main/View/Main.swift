@@ -67,7 +67,7 @@ struct AnimeSection: View {
                     })
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
+                    LazyHStack(alignment: .top) {
                         ForEach(0...9, id: \.self) { index in
                             NavigationLink(
                                 destination: DetailView(id: viewModel.animeList[index].malId, type: type),

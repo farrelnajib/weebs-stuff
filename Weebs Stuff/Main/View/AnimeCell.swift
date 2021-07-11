@@ -15,7 +15,7 @@ struct AnimeCell: View {
         VStack(alignment: .leading) {
             KFImage(URL(string: anime.imageUrl))
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+                .aspectRatio(contentMode: .fit)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .cornerRadius(20)
                 .padding(0)

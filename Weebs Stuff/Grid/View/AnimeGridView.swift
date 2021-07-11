@@ -10,8 +10,8 @@ import SwiftUI
 struct AnimeGridView: View {
     
     private let gridItems = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible(), alignment: .top),
+        GridItem(.flexible(), alignment: .top)
     ]
     let animeList: [Anime]
     let title: String

@@ -70,7 +70,7 @@ struct DetailView: View {
                             VStack {
                                 HStack(spacing: 0) {
                                     Image(systemName: "star.fill")
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(Color(UIColor.systemYellow))
                                     Text(String(format: "%.2f", anime.score ?? 0))
                                         .bold()
                                 }
@@ -123,25 +123,17 @@ struct DetailView: View {
                                 .frame(height: 5)
                             
                             Text("\(anime.synopsis ?? "No Synopsis")")
-                                .lineLimit(isExpanded ? nil : 2)
+                                .lineLimit(isExpanded ? nil : 3)
                                 .fixedSize(horizontal: false, vertical: true)
-                                .overlay(
-                                    GeometryReader { proxy in
-                                        Button(action: {
-                                            isExpanded.toggle()
-                                        }) {
-                                            Text(isExpanded ? "Less" : "More")
-                                                .font(.caption).bold()
-                                                .padding(.leading, 8.0)
-                                                .padding(.top, 4.0)
-                                                .background(Color.white)
-                                        }
-                                        .frame(width: proxy.size.width, height: proxy.size.height, alignment: .bottomTrailing)
-                                    }
-                                )
                         }
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding([.horizontal, .top])
+                        
+                        Button(action: {
+                            isExpanded.toggle()
+                        }, label: {
+                            Text("Show More")
+                        })
                         
                         VStack() {
                             Text("Characters")
