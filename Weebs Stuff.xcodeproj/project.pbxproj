@@ -13,6 +13,9 @@
 		0C1C831026983127006A997A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830F26983127006A997A /* Character.swift */; };
 		0C1C8312269831BD006A997A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8311269831BD006A997A /* DetailViewModel.swift */; };
 		0C1C831626989673006A997A /* AnimeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C831526989673006A997A /* AnimeGridView.swift */; };
+		0C6D2A6B269C29CC001980D4 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D2A6A269C29CC001980D4 /* SearchBar.swift */; };
+		0C6D2A6D269C758B001980D4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D2A6C269C758B001980D4 /* SearchView.swift */; };
+		0C6D2A72269C86AC001980D4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6D2A71269C86AC001980D4 /* SearchViewModel.swift */; };
 		0CD0E25F26971E910065ECDF /* Weebs_StuffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */; };
 		0CD0E26126971E910065ECDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E26026971E910065ECDF /* ContentView.swift */; };
 		0CD0E26326971E940065ECDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD0E26226971E940065ECDF /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		0C1C830F26983127006A997A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		0C1C8311269831BD006A997A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0C1C831526989673006A997A /* AnimeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGridView.swift; sourceTree = "<group>"; };
+		0C6D2A6A269C29CC001980D4 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		0C6D2A6C269C758B001980D4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0C6D2A71269C86AC001980D4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0CD0E25B26971E910065ECDF /* Weebs Stuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weebs Stuff.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weebs_StuffApp.swift; sourceTree = "<group>"; };
 		0CD0E26026971E910065ECDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0C6D2A6E269C867C001980D4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0C6D2A70269C86A1001980D4 /* ViewModel */,
+				0C6D2A6F269C869A001980D4 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0C6D2A6F269C869A001980D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0C6D2A6C269C758B001980D4 /* SearchView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0C6D2A70269C86A1001980D4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0C6D2A71269C86AC001980D4 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0CD0E25226971E910065ECDF = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +130,9 @@
 				0CD0E27F269759020065ECDF /* Detail */,
 				0CD0E26E269720330065ECDF /* Model */,
 				0CD0E26D2697200B0065ECDF /* Main */,
-				0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */,
+				0C6D2A6E269C867C001980D4 /* Search */,
 				0CD0E26026971E910065ECDF /* ContentView.swift */,
+				0CD0E25E26971E910065ECDF /* Weebs_StuffApp.swift */,
 				0CD0E26226971E940065ECDF /* Assets.xcassets */,
 				0CD0E26726971E940065ECDF /* Info.plist */,
 				0CD0E26426971E940065ECDF /* Preview Content */,
@@ -158,6 +190,7 @@
 				0CD0E27A26974B630065ECDF /* ActivityIndicator.swift */,
 				0C1C83092697EAE4006A997A /* WebView.swift */,
 				0C1C830B26982341006A997A /* RoundedCorner.swift */,
+				0C6D2A6A269C29CC001980D4 /* SearchBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -264,6 +297,7 @@
 			files = (
 				0CD0E274269722EA0065ECDF /* AnimeCell.swift in Sources */,
 				0CD0E283269759520065ECDF /* DetailView.swift in Sources */,
+				0C6D2A6B269C29CC001980D4 /* SearchBar.swift in Sources */,
 				0C1C830C26982341006A997A /* RoundedCorner.swift in Sources */,
 				0C1C831026983127006A997A /* Character.swift in Sources */,
 				0CD0E27626972BA90065ECDF /* Anime.swift in Sources */,
@@ -273,7 +307,9 @@
 				0CD0E27B26974B630065ECDF /* ActivityIndicator.swift in Sources */,
 				0C1C8312269831BD006A997A /* DetailViewModel.swift in Sources */,
 				0C1C830A2697EAE4006A997A /* WebView.swift in Sources */,
+				0C6D2A6D269C758B001980D4 /* SearchView.swift in Sources */,
 				0C1C831626989673006A997A /* AnimeGridView.swift in Sources */,
+				0C6D2A72269C86AC001980D4 /* SearchViewModel.swift in Sources */,
 				0CD0E25F26971E910065ECDF /* Weebs_StuffApp.swift in Sources */,
 				0CD0E278269740CB0065ECDF /* MainViewModel.swift in Sources */,
 			);

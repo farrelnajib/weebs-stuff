@@ -8,8 +8,6 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
-//    @Published var airings = [Anime]()
-//    @Published var upcoming = [Anime]()
     @Published var animeList = [Anime]()
     private var baseUrl = "https://api.jikan.moe/v3/top/"
     

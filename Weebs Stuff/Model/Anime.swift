@@ -20,6 +20,10 @@ struct Responses: Decodable {
     
 }
 
+struct SearchResponse: Decodable {
+    let results: [Anime]
+}
+
 let MOCK_ANIME: Anime = Anime(
     malId: 46471,
     title: "Tantei wa Mou, Shindeiru.",

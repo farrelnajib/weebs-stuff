@@ -8,34 +8,56 @@
 import SwiftUI
 
 struct Main: View {
-    @StateObject var viewModel = MainViewModel()
+//    @StateObject var viewModel = MainViewModel()
     @State var selection = "Anime"
+    @State var search = ""
+    @State var isSearch = false
+    @StateObject var animeSearch = SearchViewModel(type: "anime")
+    @StateObject var mangaSearch = SearchViewModel(type: "manga")
     
     var body: some View {
         NavigationView {
             TabView(selection: $selection) {
                 ScrollView {
-                    AnimeSection(type: "anime", title: "Most Popular", endpoint: "bypopularity")
-                    AnimeSection(type: "anime", title: "On-going", endpoint: "airing")
-                    AnimeSection(type: "anime", title: "Upcoming", endpoint: "upcoming")
+                    SearchBar(text: $animeSearch.searchQuery, isEditing: $isSearch)
+                    if isSearch {
+                        SearchView(type: "anime", query: search)
+                    }
+                    else {
+                        AnimeSection(type: "anime", title: "Most Popular", endpoint: "bypopularity")
+                        AnimeSection(type: "anime", title: "On-going", endpoint: "airing")
+                        AnimeSection(type: "anime", title: "Upcoming", endpoint: "upcoming")
+                    }
                 }
                 .tabItem {
                     Label("Anime", systemImage: "tv")
                 }
                 .tag("Anime")
+                .environmentObject(animeSearch)
                 
                 ScrollView {
-                    AnimeSection(type: "manga", title: "Most Popular", endpoint: "bypopularity")
-                    AnimeSection(type: "manga", title: "Top Novels", endpoint: "novels")
-                    AnimeSection(type: "manga", title: "Top Manhwa", endpoint: "manhwa")
+                    SearchBar(text: $mangaSearch.searchQuery, isEditing: $isSearch)
+                    if isSearch {
+                        SearchView(type: "manga", query: search)
+                    } else {
+                        AnimeSection(type: "manga", title: "Most Popular", endpoint: "bypopularity")
+                        AnimeSection(type: "manga", title: "Top Novels", endpoint: "novels")
+                        AnimeSection(type: "manga", title: "Top Manhwa", endpoint: "manhwa")
+                    }
                 }
                 .tabItem {
                     Label("Manga", systemImage: "book")
                 }
                 .tag("Manga")
+                .environmentObject(mangaSearch)
                     
             }
+            .onChange(of: selection, perform: { value in
+                isSearch = false
+            })
+            .navigationBarHidden(isSearch)
             .navigationBarTitle(selection)
+            .animation(.linear(duration: 0.2))
         }
     }
 }
