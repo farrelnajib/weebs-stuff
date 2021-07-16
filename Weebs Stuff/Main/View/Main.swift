@@ -55,9 +55,7 @@ struct Main: View {
             .onChange(of: selection, perform: { value in
                 isSearch = false
             })
-            .navigationBarHidden(isSearch)
             .navigationBarTitle(selection)
-            .animation(.linear(duration: 0.2))
         }
     }
 }
@@ -82,12 +80,13 @@ struct AnimeSection: View {
         .padding([.top, .horizontal])
         
         VStack(alignment: .trailing) {
-            if viewModel.animeList.count == 0 {
-                ActivityIndicator(shouldAnimate: true)
+            switch(viewModel.status) {
+            case .loading:
+                ProgressView()
                     .onAppear(perform: {
                         viewModel.fetchAnime(type: type, endpoint: endpoint)
                     })
-            } else {
+            case .success:
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top) {
                         ForEach(0...9, id: \.self) { index in
@@ -102,6 +101,10 @@ struct AnimeSection: View {
                         }
                     }
                 }
+            case .failed(err: let err):
+                Text("\(err.localizedDescription)")
+            case .idle:
+                Text("Idling...")
             }
         }
     }

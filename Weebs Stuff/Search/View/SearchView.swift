@@ -14,22 +14,39 @@ struct SearchView: View {
     @EnvironmentObject var viewModel: SearchViewModel
     
     var body: some View {
-        if let anime = viewModel.animeList {
-            VStack(alignment: .leading) {
-                ForEach(0..<anime.count, id: \.self) { idx in
+        switch viewModel.status {
+        case .loading:
+            ProgressView()
+            LazyVStack(alignment: .leading) {
+                ForEach(0..<viewModel.animeList.count, id: \.self) { idx in
                     NavigationLink(
-                        destination: DetailView(id: anime[idx].malId, type: type),
+                        destination: DetailView(id: viewModel.animeList[idx].malId, type: type),
                         label: {
-                            SearchCell(anime: anime[idx])
+                            SearchCell(anime: viewModel.animeList[idx])
                         }
                     )
                     .buttonStyle(PlainButtonStyle())
                 }
             }
-        } else {
-            if viewModel.searchQuery != "" {
-                ProgressView()
+        case .success:
+            LazyVStack(alignment: .leading) {
+                ForEach(0..<viewModel.animeList.count, id: \.self) { idx in
+                    NavigationLink(
+                        destination: DetailView(id: viewModel.animeList[idx].malId, type: type),
+                        label: {
+                            SearchCell(anime: viewModel.animeList[idx])
+                        }
+                    )
+                    .buttonStyle(PlainButtonStyle())
+                }
             }
+        case .failed(let err):
+            Text("\(err.localizedDescription)")
+        case .idle:
+            Text("Type to serch...")
+                .padding()
+                .font(.callout)
+                .foregroundColor(.gray)
         }
     }
 }
@@ -49,18 +66,23 @@ struct SearchCell: View {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                     Text(String(format: "%.2f", anime.score))
-                    
                 }
             }
             Spacer()
         }
-        .frame(maxWidth: .infinity)
         .padding(.horizontal)
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView(type: "anime", query: "naruto")
+//            .environmentObject(SearchViewModel(type: "anime"))
+//    }
+//}
+
+struct SearchCell_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(type: "anime", query: "naruto")
+        SearchCell(anime: MOCK_ANIME)
     }
 }

@@ -11,7 +11,8 @@ import Combine
 class SearchViewModel: ObservableObject {
     var searchCancellable: AnyCancellable? = nil
     @Published var searchQuery = ""
-    @Published var animeList: [Anime]?
+    @Published var status: ResultState = .idle
+    var animeList = [Anime]()
     private var baseUrl = "https://api.jikan.moe/v3/search"
     
     init(type: String) {
@@ -19,9 +20,11 @@ class SearchViewModel: ObservableObject {
             .removeDuplicates()
             .debounce(for: 0.4, scheduler: RunLoop.main)
             .sink(receiveValue: { str in
-                self.animeList = nil
+                self.status = .loading
                 if str != "" {
                     self.searchAnime(type: type, query: self.searchQuery)
+                } else {
+                    self.status = .idle
                 }
             })
     }
@@ -40,11 +43,12 @@ class SearchViewModel: ObservableObject {
             jsonParser.keyDecodingStrategy = .convertFromSnakeCase
             
             guard let data = data else { return }
-
             guard let animu = try? jsonParser.decode(SearchResponse.self, from: data) else { return }
 
+            self.animeList = animu.results
+            
             DispatchQueue.main.async {
-                self.animeList = animu.results
+                self.status = .success
             }
         }.resume()
     }

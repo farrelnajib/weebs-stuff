@@ -46,9 +46,10 @@ struct DetailView: View {
                             .scaledToFit()
                             .cornerRadius(20)
                             .frame(width: 200)
+                            .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 5)
                             
                         Text(anime.titleJapanese ?? "")
-                            .padding(.horizontal)
+                            .padding([.horizontal, .top])
                             .multilineTextAlignment(.center)
                         
                         Link(anime.title ?? "", destination: URL(string: anime.url ?? "") ?? URL(string: "https://google.com")!)
@@ -185,6 +186,6 @@ extension View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(id: 11, type: "manga")
+        DetailView(id: 21, type: "anime")
     }
 }
