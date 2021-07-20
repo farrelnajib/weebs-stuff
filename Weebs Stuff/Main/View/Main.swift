@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Main: View {
 //    @StateObject var viewModel = MainViewModel()
-    @State var selection = "Anime"
+    @State var selection = "Anime List"
     @State var search = ""
     @State var isSearch = false
     @StateObject var animeSearch = SearchViewModel(type: "anime")
@@ -32,7 +32,7 @@ struct Main: View {
                 .tabItem {
                     Label("Anime", systemImage: "tv")
                 }
-                .tag("Anime")
+                .tag("Anime List")
                 .environmentObject(animeSearch)
                 
                 ScrollView {
@@ -48,7 +48,7 @@ struct Main: View {
                 .tabItem {
                     Label("Manga", systemImage: "book")
                 }
-                .tag("Manga")
+                .tag("Manga List")
                 .environmentObject(mangaSearch)
                     
             }

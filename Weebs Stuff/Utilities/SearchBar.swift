@@ -51,10 +51,10 @@ struct SearchBar: View {
                     Text("Cancel")
                 }
                 .padding(.trailing, 10)
-                .transition(.move(edge: .trailing))
-                .animation(.linear(duration: 0.2))
             }
         }
+        .transition(.move(edge: .trailing))
+        .animation(.linear(duration: 0.1))
     }
 }
 

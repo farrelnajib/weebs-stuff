@@ -24,6 +24,7 @@ class SearchViewModel: ObservableObject {
                 if str != "" {
                     self.searchAnime(type: type, query: self.searchQuery)
                 } else {
+                    self.animeList = []
                     self.status = .idle
                 }
             })

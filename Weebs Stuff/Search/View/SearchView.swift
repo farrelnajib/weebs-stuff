@@ -43,7 +43,7 @@ struct SearchView: View {
         case .failed(let err):
             Text("\(err.localizedDescription)")
         case .idle:
-            Text("Type to serch...")
+            Text("Type to search...")
                 .padding()
                 .font(.callout)
                 .foregroundColor(.gray)
@@ -59,7 +59,7 @@ struct SearchCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 75)
-                .cornerRadius(20)
+                .cornerRadius(8)
             VStack(alignment: .leading) {
                 Text(anime.title)
                 HStack(spacing: 5) {

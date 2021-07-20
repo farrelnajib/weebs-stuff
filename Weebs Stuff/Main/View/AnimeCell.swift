@@ -17,7 +17,7 @@ struct AnimeCell: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .cornerRadius(20)
+                .cornerRadius(8)
                 .padding(0)
             Text(anime.title)
                 .lineLimit(2)

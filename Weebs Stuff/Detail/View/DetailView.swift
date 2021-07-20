@@ -44,7 +44,7 @@ struct DetailView: View {
                         KFImage(URL(string: anime.imageUrl ?? ""))
                             .resizable()
                             .scaledToFit()
-                            .cornerRadius(20)
+                            .cornerRadius(8)
                             .frame(width: 200)
                             .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 5)
                             
@@ -144,19 +144,26 @@ struct DetailView: View {
                             if let characters = anime.characters {
                                 LazyVStack(alignment: .leading) {
                                     ForEach(0..<(characters.count > 10 ? 10 : characters.count), id: \.self) { index in
-                                        HStack {
-                                            KFImage(URL(string: characters[index].imageUrl ?? ""))
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 75)
-                                                .cornerRadius(20)
-                                            VStack(alignment: .leading) {
-                                                Text(characters[index].name ?? "-")
-                                                Text(characters[index].role ?? "")
-                                                    .font(.caption)
+                                        NavigationLink(
+                                            destination: CharacterView(id: characters[index].malId),
+                                            label: {
+                                                HStack {
+                                                    KFImage(URL(string: characters[index].imageUrl ?? ""))
+                                                        .resizable()
+                                                        .scaledToFit()
+                                                        .frame(width: 75)
+                                                        .cornerRadius(8)
+                                                    VStack(alignment: .leading) {
+                                                        Text(characters[index].name ?? "-")
+                                                        Text(characters[index].role ?? "")
+                                                            .font(.caption)
+                                                    }
+                                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                                    Spacer()
+                                                }
                                             }
-                                            Spacer()
-                                        }
+                                        )
+                                        .buttonStyle(PlainButtonStyle())
                                     }
                                 }
                             } else {
@@ -167,12 +174,14 @@ struct DetailView: View {
                     }
                 }
             }
+            .navigationBarTitle("Anime")
             .navigationBarTitleDisplayMode(.inline)
         } else {
             ProgressView()
                 .onAppear(perform: {
                     viewModel.fetchAnime()
                 })
+                .navigationBarTitle("Anime")
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
