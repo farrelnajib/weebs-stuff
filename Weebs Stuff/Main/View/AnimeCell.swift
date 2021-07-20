@@ -22,7 +22,7 @@ struct AnimeCell: View {
             Text(anime.title)
                 .lineLimit(2)
             if let score = anime.score,
-               score < 0{
+               score > 0{
                 HStack(spacing: 0) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
