@@ -9,13 +9,17 @@ import SwiftUI
 import Kingfisher
 
 struct CharacterView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     let id: Int
     @State var isExpanded = false
     @ObservedObject var viewModel: CharacterViewModel
+    @ObservedObject var detailViewModel: DetailViewModel
     
-    init(id: Int) {
+    init(id: Int, detailVM: DetailViewModel) {
         self.id = id
         viewModel = CharacterViewModel(id: id)
+        detailViewModel = detailVM
     }
     
     var body: some View {
@@ -59,6 +63,12 @@ struct CharacterView: View {
                         .buttonStyle(PlainButtonStyle())
                         .padding(.horizontal)
                         .lineLimit(2)
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Back")
+                    })
                     
                     VStack(alignment: .leading) {
                         HStack {
@@ -120,27 +130,30 @@ struct CharacterView: View {
                         if let anime = character.animeography {
                             LazyVStack {
                                 ForEach(0..<anime.count, id: \.self) {idx in
-                                    NavigationLink(
-                                        destination: DetailView(id: anime[idx].malId, type: "anime"),
-                                        label: {
-                                            HStack {
-                                                if let image = anime[idx].imageUrl {
-                                                    KFImage(URL(string: image))
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 75)
-                                                        .cornerRadius(8)
-                                                }
-                                                
-                                                VStack(alignment: .leading) {
-                                                    Text(anime[idx].name ?? "")
-                                                    Text(anime[idx].role ?? "")
-                                                        .font(.caption)
-                                                }
+                                    Button(action: {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                        
+                                        detailViewModel.id = anime[idx].malId
+                                        detailViewModel.type = "anime"
+                                        detailViewModel.anime = nil
+                                    }, label: {
+                                        HStack {
+                                            if let image = anime[idx].imageUrl {
+                                                KFImage(URL(string: image))
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 75)
+                                                    .cornerRadius(8)
                                             }
-                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            
+                                            VStack(alignment: .leading) {
+                                                Text(anime[idx].name ?? "")
+                                                Text(anime[idx].role ?? "")
+                                                    .font(.caption)
+                                            }
                                         }
-                                    )
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    })
                                     .buttonStyle(PlainButtonStyle())
                                 }
                             }
@@ -156,27 +169,30 @@ struct CharacterView: View {
                         if let manga = character.mangaography {
                             LazyVStack {
                                 ForEach(0..<manga.count, id: \.self) {idx in
-                                    NavigationLink(
-                                        destination: DetailView(id: manga[idx].malId, type: "manga"),
-                                        label: {
-                                            HStack {
-                                                if let image = manga[idx].imageUrl {
-                                                    KFImage(URL(string: image))
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(width: 75)
-                                                        .cornerRadius(8)
-                                                }
-                                                
-                                                VStack(alignment: .leading) {
-                                                    Text(manga[idx].name ?? "")
-                                                    Text(manga[idx].role ?? "")
-                                                        .font(.caption)
-                                                }
+                                    Button(action: {
+                                        self.presentationMode.wrappedValue.dismiss()
+                                        
+                                        detailViewModel.id = manga[idx].malId
+                                        detailViewModel.type = "anime"
+                                        detailViewModel.anime = nil
+                                    }, label: {
+                                        HStack {
+                                            if let image = manga[idx].imageUrl {
+                                                KFImage(URL(string: image))
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 75)
+                                                    .cornerRadius(8)
                                             }
-                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            
+                                            VStack(alignment: .leading) {
+                                                Text(manga[idx].name ?? "")
+                                                Text(manga[idx].role ?? "")
+                                                    .font(.caption)
+                                            }
                                         }
-                                    )
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    })
                                     .buttonStyle(PlainButtonStyle())
                                 }
                             }
@@ -192,6 +208,6 @@ struct CharacterView: View {
 
 struct CharacterView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterView(id: 40)
+        CharacterView(id: 40, detailVM: DetailViewModel(id: 21, type: "anime"))
     }
 }

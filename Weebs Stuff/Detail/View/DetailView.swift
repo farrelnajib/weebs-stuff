@@ -27,27 +27,26 @@ struct DetailView: View {
     var body: some View {
         if let anime = viewModel.anime {
             ScrollView {
-                KFImage(URL(string: anime.imageUrl ?? ""))
+                KFImage(URL(string: anime.imageUrl ))
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(8)
                     .frame(width: 200)
                     .padding(.vertical)
-//                    .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 5)
                     
                 VStack {
-                    Text(anime.titleJapanese ?? "")
+                    Text(anime.titleJapanese ?? "-")
                         .padding(.horizontal)
                         .multilineTextAlignment(.center)
                     
-                    Link(anime.title ?? "", destination: URL(string: anime.url ?? "") ?? URL(string: "https://google.com")!)
+                    Link(anime.title , destination: (URL(string: anime.url ) ?? URL(string: "https://google.com"))!)
                         .font(.title)
                         .multilineTextAlignment(.center)
                         .buttonStyle(PlainButtonStyle())
                         .padding(.horizontal)
                         .lineLimit(2)
                     
-                    Text(anime.titleEnglish ?? "")
+                    Text(anime.titleEnglish ?? "-")
                         .padding(.horizontal)
                         .multilineTextAlignment(.center)
                 }
@@ -60,7 +59,7 @@ struct DetailView: View {
                             .background(Capsule().stroke())
                             .padding(.vertical, 5)
                     }
-                    .padding(.vertical)
+                    .padding()
                 }
                 
                 HStack {
@@ -109,12 +108,29 @@ struct DetailView: View {
                     Spacer()
                 }
                 
-                Text(anime.status ?? "Unknown Status")
-                    .font(.callout)
-                    .bold()
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
-                    .background(Capsule().stroke())
+                
+                HStack {
+                    Spacer()
+                    
+                    VStack {
+                        Text(anime.status ?? "Unknown Status")
+                            .font(.callout)
+                            .bold()
+                        Text("Status")
+                    }
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Text(anime.premiered ?? "-")
+                            .font(.callout)
+                            .bold()
+                        Text("Premiered")
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
                 
                 
                 VStack(alignment: .leading) {
@@ -172,9 +188,9 @@ struct DetailView: View {
                         .multilineTextAlignment(.leading)
                     if let characters = anime.characters {
                         LazyVStack(alignment: .leading) {
-                            ForEach(0..<(characters.count > 10 ? 10 : characters.count), id: \.self) { index in
+                            ForEach(0..<viewModel.displayedCount, id: \.self) { index in
                                 NavigationLink(
-                                    destination: CharacterView(id: characters[index].malId),
+                                    destination: CharacterView(id: characters[index].malId, detailVM: viewModel),
                                     label: {
                                         HStack {
                                             KFImage(URL(string: characters[index].imageUrl ?? ""))
@@ -197,6 +213,24 @@ struct DetailView: View {
                         }
                     } else {
                         ProgressView()
+                    }
+                    
+                    if viewModel.isExpandable {
+                        Button(action: {
+                            if viewModel.isExpanded {
+                                viewModel.displayedCount = 10
+                                viewModel.isExpanded = false
+                            } else {
+                                viewModel.displayedCount = anime.characters!.count
+                                viewModel.isExpanded = true
+                            }
+                        }, label: {
+                            if viewModel.isExpanded {
+                                Text("Show less")
+                            } else {
+                                Text("Show more")
+                            }
+                        })
                     }
                 }
                 .padding()

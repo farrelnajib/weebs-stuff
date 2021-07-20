@@ -8,19 +8,22 @@
 import Foundation
 
 class DetailViewModel: ObservableObject {
-    let id: Int
-    let type: String
-    @Published var anime: AnimeDetail?
+    var id: Int
+    var type: String
+    @Published var anime: Anime?
+    var isExpandable = false
+    @Published var isExpanded = false
+    @Published var displayedCount = 0
     private var baseUrl = "https://api.jikan.moe/v3"
-    private var request: String
+    private var request: String = ""
     
     init(id: Int, type: String) {
         self.id = id
         self.type = type
-        self.request = baseUrl + "/" + type + "/" + String(id)
     }
     
     func fetchAnime() {
+        request = baseUrl + "/" + type + "/" + String(id)
         guard let url = URL(string: request) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -28,7 +31,7 @@ class DetailViewModel: ObservableObject {
             jsonParser.keyDecodingStrategy = .convertFromSnakeCase
             
             guard let data = data else { return }
-            guard let animu = try? jsonParser.decode(AnimeDetail.self, from: data) else { return }
+            guard let animu = try? jsonParser.decode(Anime.self, from: data) else { return }
             
             DispatchQueue.main.async {
                 self.anime = animu
@@ -49,6 +52,12 @@ class DetailViewModel: ObservableObject {
             
             DispatchQueue.main.async {
                 self.anime?.characters = chara.characters
+                if chara.characters.count > 10 {
+                    self.isExpandable = true
+                    self.displayedCount = 10
+                } else {
+                    self.displayedCount = chara.characters.count
+                }
             }
         }.resume()
     }

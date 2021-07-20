@@ -62,10 +62,30 @@ struct SearchCell: View {
                 .cornerRadius(8)
             VStack(alignment: .leading) {
                 Text(anime.title)
-                HStack(spacing: 5) {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                    Text(String(format: "%.2f", anime.score))
+                
+                if let score = anime.score,
+                   score > 0{
+                    HStack(spacing: 5) {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Text(String(format: "%.2f", score))
+                    }
+                }
+                
+                if let airing = anime.airing {
+                    if airing {
+                        Text("Currently Airing")
+                            .font(.caption)
+                            .italic()
+                    } else if anime.endDate != nil {
+                        Text("Finished Airing")
+                            .font(.caption)
+                            .italic()
+                    } else {
+                        Text("Not yet Aired")
+                            .font(.caption)
+                            .italic()
+                    }
                 }
             }
             Spacer()

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0C1C830A2697EAE4006A997A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C83092697EAE4006A997A /* WebView.swift */; };
 		0C1C830C26982341006A997A /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830B26982341006A997A /* RoundedCorner.swift */; };
-		0C1C830E26982F21006A997A /* AnimeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830D26982F21006A997A /* AnimeDetail.swift */; };
 		0C1C831026983127006A997A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C830F26983127006A997A /* Character.swift */; };
 		0C1C8312269831BD006A997A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C8311269831BD006A997A /* DetailViewModel.swift */; };
 		0C1C831626989673006A997A /* AnimeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C831526989673006A997A /* AnimeGridView.swift */; };
@@ -49,7 +48,6 @@
 /* Begin PBXFileReference section */
 		0C1C83092697EAE4006A997A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		0C1C830B26982341006A997A /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
-		0C1C830D26982F21006A997A /* AnimeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetail.swift; sourceTree = "<group>"; };
 		0C1C830F26983127006A997A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		0C1C8311269831BD006A997A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0C1C831526989673006A997A /* AnimeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGridView.swift; sourceTree = "<group>"; };
@@ -216,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				0CD0E27526972BA90065ECDF /* Anime.swift */,
-				0C1C830D26982F21006A997A /* AnimeDetail.swift */,
 				0C1C830F26983127006A997A /* Character.swift */,
 			);
 			path = Model;
@@ -362,7 +359,6 @@
 				0C1C830C26982341006A997A /* RoundedCorner.swift in Sources */,
 				0C1C831026983127006A997A /* Character.swift in Sources */,
 				0CD0E27626972BA90065ECDF /* Anime.swift in Sources */,
-				0C1C830E26982F21006A997A /* AnimeDetail.swift in Sources */,
 				0CD0E2722697204A0065ECDF /* Main.swift in Sources */,
 				0CD0E26126971E910065ECDF /* ContentView.swift in Sources */,
 				0CD0E27B26974B630065ECDF /* ActivityIndicator.swift in Sources */,

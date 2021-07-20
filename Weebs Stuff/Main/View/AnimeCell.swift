@@ -21,11 +21,12 @@ struct AnimeCell: View {
                 .padding(0)
             Text(anime.title)
                 .lineLimit(2)
-            if anime.score > 0 {
+            if let score = anime.score,
+               score < 0{
                 HStack(spacing: 0) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
-                    Text(String(format: "%.2f", anime.score))
+                    Text(String(format: "%.2f", score))
                 }
             }
         }
