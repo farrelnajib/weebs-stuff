@@ -13,32 +13,43 @@ struct AnimeGridView: View {
         GridItem(.flexible(), alignment: .top),
         GridItem(.flexible(), alignment: .top)
     ]
-    let animeList: [Anime]
+    @ObservedObject var viewModel: MainViewModel
     let title: String
     let type: String
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: gridItems, spacing: 20) {
-                ForEach(0..<animeList.count, id: \.self) { index in
-                    NavigationLink(
-                        destination: DetailView(id: animeList[index].malId, type: type),
-                        label: {
-                            AnimeCell(anime: animeList[index])
-                                .padding(5)
-                        }
-                    )
-                    .buttonStyle(PlainButtonStyle())
+        switch viewModel.status {
+        case .loading:
+            ProgressView()
+                .navigationBarTitle(title)
+        case .success:
+            ScrollView {
+                LazyVGrid(columns: gridItems, spacing: 20) {
+                    ForEach(0..<viewModel.animeList.count, id: \.self) { index in
+                        NavigationLink(
+                            destination: DetailView(id: viewModel.animeList[index].malId, type: type),
+                            label: {
+                                AnimeCell(anime: viewModel.animeList[index])
+                                    .padding(5)
+                            }
+                        )
+                        .buttonStyle(PlainButtonStyle())
+                    }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .navigationBarTitle(title)
+        case .idle:
+            ProgressView()
+                .navigationBarTitle(title)
+        case .failed(err: let err):
+            Text("\(err.localizedDescription)")
         }
-        .navigationBarTitle(title)
     }
 }
 
 struct AnimeGridView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimeGridView(animeList: [MOCK_ANIME], title: "On-going", type: "anime")
+        AnimeGridView(viewModel: MainViewModel(), title: "On-going", type: "anime")
     }
 }

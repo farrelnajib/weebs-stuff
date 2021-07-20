@@ -72,7 +72,7 @@ struct AnimeSection: View {
                 .font(.headline)
             Spacer()
             NavigationLink(
-                destination: AnimeGridView(animeList: viewModel.animeList, title: title, type: type),
+                destination: AnimeGridView(viewModel: viewModel, title: title, type: type),
                 label: {
                     Text("See all")
                 })
