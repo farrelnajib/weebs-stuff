@@ -30,7 +30,21 @@
 		0CD0E27B26974B630065ECDF /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E27A26974B630065ECDF /* ActivityIndicator.swift */; };
 		0CD0E27E2697522E0065ECDF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD0E27D2697522E0065ECDF /* Kingfisher */; };
 		0CD0E283269759520065ECDF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD0E282269759520065ECDF /* DetailView.swift */; };
+		0CDB1B4226A6D18100744587 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDB1B4126A6D18100744587 /* WrappingHStack */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0CDB1B3C26A6CECD00744587 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C1C83092697EAE4006A997A /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -64,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CDB1B4226A6D18100744587 /* WrappingHStack in Frameworks */,
 				0CD0E27E2697522E0065ECDF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +286,7 @@
 				0CD0E25726971E910065ECDF /* Sources */,
 				0CD0E25826971E910065ECDF /* Frameworks */,
 				0CD0E25926971E910065ECDF /* Resources */,
+				0CDB1B3C26A6CECD00744587 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +295,7 @@
 			name = "Weebs Stuff";
 			packageProductDependencies = (
 				0CD0E27D2697522E0065ECDF /* Kingfisher */,
+				0CDB1B4126A6D18100744587 /* WrappingHStack */,
 			);
 			productName = "Weebs Stuff";
 			productReference = 0CD0E25B26971E910065ECDF /* Weebs Stuff.app */;
@@ -309,6 +326,7 @@
 			mainGroup = 0CD0E25226971E910065ECDF;
 			packageReferences = (
 				0CD0E27C2697522E0065ECDF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				0CDB1B4026A6D18100744587 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = 0CD0E25C26971E910065ECDF /* Products */;
 			projectDirPath = "";
@@ -554,6 +572,14 @@
 				minimumVersion = 6.3.0;
 			};
 		};
+		0CDB1B4026A6D18100744587 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -561,6 +587,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0CD0E27C2697522E0065ECDF /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		0CDB1B4126A6D18100744587 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDB1B4026A6D18100744587 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

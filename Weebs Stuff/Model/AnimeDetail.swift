@@ -22,4 +22,10 @@ struct AnimeDetail: Decodable {
     let score: Float?
     let synopsis: String?
     var characters: [Character]?
+    let genres: [Genre]?
+}
+
+struct Genre: Decodable {
+    let malId: Int
+    let name: String?
 }
