@@ -19,6 +19,7 @@ struct AnimeDetail: Decodable {
     let duration: String?
     let volumes: Int?
     let chapters: Int?
+    let status: String?
     let score: Float?
     let synopsis: String?
     var characters: [Character]?

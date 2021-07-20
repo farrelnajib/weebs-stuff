@@ -33,11 +33,11 @@ struct DetailView: View {
                     .cornerRadius(8)
                     .frame(width: 200)
                     .padding(.vertical)
-                    .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 5)
+//                    .shadow(color: .black.opacity(0.5), radius: 10, x: 0, y: 5)
                     
                 VStack {
                     Text(anime.titleJapanese ?? "")
-                        .padding([.horizontal, .top])
+                        .padding(.horizontal)
                         .multilineTextAlignment(.center)
                     
                     Link(anime.title ?? "", destination: URL(string: anime.url ?? "") ?? URL(string: "https://google.com")!)
@@ -108,6 +108,13 @@ struct DetailView: View {
                     }
                     Spacer()
                 }
+                
+                Text(anime.status ?? "Unknown Status")
+                    .font(.callout)
+                    .bold()
+                    .padding(.vertical, 5)
+                    .padding(.horizontal, 10)
+                    .background(Capsule().stroke())
                 
                 
                 VStack(alignment: .leading) {

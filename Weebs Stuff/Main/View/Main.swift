@@ -94,7 +94,7 @@ struct AnimeSection: View {
                                 destination: DetailView(id: viewModel.animeList[index].malId, type: type),
                                 label: {
                                     AnimeCell(anime: viewModel.animeList[index])
-                                        .padding(.leading, 20)
+                                        .padding(index == 9 ? [.horizontal] : .leading)
                                 }
                             )
                             .buttonStyle(PlainButtonStyle())
